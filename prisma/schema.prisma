@@ -21,3 +21,21 @@ model User {
   age     String
 }
 
+model Rejeito {
+  id    String  @id @default(auto()) @map("_id") @db.ObjectId
+  codigo_interno   String   @unique
+  categoria_id   Int
+  material_id   Int
+  descricao   String
+  peso_kg   Float
+  dimensoes_cm   String
+  atividade_bq   Float
+  data_medicao_atividade   DateTime
+  tempo_decaimento_dias   Float
+  nivel_referencia_bq   Float
+  data_recebimento   DateTime
+  data_liberacao   DateTime
+  status_id   Int
+  local_armazenamento_id   Int
+}
+
