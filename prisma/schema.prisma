@@ -24,18 +24,79 @@ model User {
 model Rejeito {
   id    String  @id @default(auto()) @map("_id") @db.ObjectId
   codigo_interno   String   @unique
-  categoria_id   Int
-  material_id   Int
   descricao   String
-  peso_kg   Float
-  dimensoes_cm   String
-  atividade_bq   Float
-  data_medicao_atividade   DateTime
-  tempo_decaimento_dias   Float
-  nivel_referencia_bq   Float
+  categoria_id   String
+  blindagem_id   String
+  peso_bruto_kg   Float
+  peso_blindagem_kg   Float
+  peso_liquido_kg   Float
+  dimensoes_externas_cm   String
+  dimensoes_internas_cm   String
+  atividade_total_bq   Float
+  data_medicao_total   DateTime
   data_recebimento   DateTime
   data_liberacao   DateTime
-  status_id   Int
-  local_armazenamento_id   Int
+  status_id   String
+  local_armazenamento_id   String
+}
+
+model Material {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  nome      String @unique
+  descricao String
+}
+
+model Categoria {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  nome      String @unique
+  descricao String
+}
+
+model Status {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  nome      String @unique
+  descricao String
+}
+
+model LocalArmazenamento {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  nome      String @unique
+  descricao String
+}
+
+model Blindagem {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  nome      String @unique
+  descricao   String
+}
+
+model Radionclideos {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  simbolo      String @unique
+  nome_comum String
+  meia_vida_dias   Float
+  descricao   String
+}
+
+model RejeitoRadionuclideo {
+  rejeito_id        String @id @default(auto()) @map("_id") @db.ObjectId
+  radionuclideo_id      String @unique
+  atividade_especifica_bq Float
+  data_medicao   DateTime
+}
+
+model RejeitoMaterial {
+  rejeito_id        String @id @default(auto()) @map("_id") @db.ObjectId
+  radionuclideo_id      String @unique
+  percentual   Float
+}
+
+model HistoricoRejeito {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  rejeito_id      String @unique
+  data_modificacao   DateTime
+  tipo_modificacao   String
+  descricao   String
+  usuario_responsavel   String
 }
 
