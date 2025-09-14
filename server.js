@@ -7,6 +7,12 @@ import categoriaRoutes from './src/routes/categoria.routes.js';
 import materialRoutes from './src/routes/material.routes.js';
 import statusRoutes from './src/routes/status.routes.js';
 import localRoutes from './src/routes/local.routes.js';
+import radionuclideoRoutes from './src/routes/radionuclideo.routes.js';
+import rejeitoMaterialRoutes from './src/routes/rejeito_material.routes.js';
+import rejeitoRadionuclideoRoutes from './src/routes/rejeito_radionuclideo.routes.js';
+import historicoRoutes from './src/routes/historico.routes.js';
+import rejeitoRoutes from './src/routes/rejeito.routes.js';
+
 
 
 
@@ -20,6 +26,14 @@ app.use('/api/categorias', categoriaRoutes)
 app.use('/api/materiais', materialRoutes)
 app.use('/api/status', statusRoutes)
 app.use('/api/locais', localRoutes)
+app.use('/api/radionuclideos', radionuclideoRoutes)
+app.use('/api/rejeito_material', rejeitoMaterialRoutes)
+app.use('/api/rejeito_radionuclideo', rejeitoRadionuclideoRoutes)
+app.use('/api/historico', historicoRoutes)
+app.use('/api/rejeito', rejeitoRoutes)
+
+
+
 
 
 app.post('/rejeito', async(req, res) => {

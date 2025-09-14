@@ -79,21 +79,23 @@ model Radionclideos {
 }
 
 model RejeitoRadionuclideo {
-  rejeito_id        String @id @default(auto()) @map("_id") @db.ObjectId
-  radionuclideo_id      String @unique
-  atividade_especifica_bq Float
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  rejeito_id        String
+  radionuclideo_id      String
+  concentracao_atividade Float
   data_medicao   DateTime
 }
 
 model RejeitoMaterial {
-  rejeito_id        String @id @default(auto()) @map("_id") @db.ObjectId
-  radionuclideo_id      String @unique
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  rejeito_id        String
+  material_id      String
   percentual   Float
 }
 
 model HistoricoRejeito {
   id        String @id @default(auto()) @map("_id") @db.ObjectId
-  rejeito_id      String @unique
+  rejeito_id      String
   data_modificacao   DateTime
   tipo_modificacao   String
   descricao   String
